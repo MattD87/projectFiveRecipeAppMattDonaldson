@@ -4,7 +4,7 @@ class RecipeLayout extends Component {
   render() {
     return (
       <div>
-        <p>Hello from Layout</p>
+        <p>Layout is functioning</p>
       </div>
     )
   }
