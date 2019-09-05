@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
 
 class RecipeInfo extends Component {
   render() {
