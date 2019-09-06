@@ -27,6 +27,14 @@ header {
   border: 1px solid red;
 }
 
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 34px;
+}
+
 main {
 display: flex;
 flex-direction: column;
@@ -46,17 +54,21 @@ h2 {
 .search {
   border: 1px dotted blue;
   margin-top: 10px;
+  font-size: 20px;
 }
 
 .recipeInfo {
   border: 1px solid green;
   margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
 }
 
 .recipeContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 
 .recipeCard {
@@ -66,4 +78,32 @@ h2 {
   align-items: center;
   width: 30%;
   padding: 20px;
+}
+
+.infoContainer {
+  text-align: left;
+  margin: auto;
+}
+
+.infoContainer h3 {
+  font-size: 28px;
+  padding: 14px 0;
+}
+
+.infoContainer h4 {
+  font-size: 20px;
+  padding: 10px 0;
+}
+
+.buttonContainer {
+  margin-top: 12px;
+}
+
+.buttonContainer button {
+  margin: 0 4px;
+}
+
+.ingredientList li {
+  list-style-type: square;
+  list-style-position: inside;
 }

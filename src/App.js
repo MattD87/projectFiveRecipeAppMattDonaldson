@@ -4,7 +4,7 @@ import RecipeList from "./components/RecipeList";
 import RecipeInfo from "./components/RecipeInfo";
 // import Search from "./components/Search";
 import "./App.css";
-import axios from "axios";
+// import axios from "axios";
 
 class App extends Component {
   constructor() {
@@ -14,7 +14,8 @@ class App extends Component {
       recipes: recipes,
       url:
         "https://www.food2fork.com/api/search?key=2d3c3b859bd6007b3ad1b5d31f2886ec",
-      isLoading: true
+      isLoading: true,
+      id: 35382
     };
   }
 
@@ -31,7 +32,7 @@ class App extends Component {
   //     .then(results => {
   //       //store ajax call info into a variable called results and limit the results (default is 30)
   //       results = results.data.recipes;
-  //       results.length = 12;
+  //       results.length = 12; TRY SETTING COUNT INSTEAD IN PARAMS
 
   //       this.setState({
   //         recipes: results,
@@ -59,7 +60,7 @@ class App extends Component {
             recipes={this.state.recipes}
             isLoading={this.state.isLoading}
           />
-          <RecipeInfo />
+          <RecipeInfo id={this.state.id}/>
         </main>
       </div>
     );
