@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { recipe } from "../fakeInfo";
+import axios from "axios";
 
 class RecipeInfo extends Component {
   constructor(props) {
@@ -7,11 +8,35 @@ class RecipeInfo extends Component {
     this.state = {
       // recipe: {},
       recipe: recipe,
-      url: `https://www.food2fork.com/api/get?key=2d3c3b859bd6007b3ad1b5d31f2886ec&rId=${this.props.id}`
+      url: "https://www.food2fork.com/api/get"
     };
   }
+
+  getInfo = () => {
+    axios({
+      method: "GET",
+      url: "https://www.food2fork.com/api/get",
+      dataResponse: "json",
+      params: {
+        key: "07d7e44a4bc10ad558be2bdd5a88bbbc",
+        rId: `${this.props.id}`
+      }
+    }).then(res => {
+      res = res.data.recipe;
+
+      this.setState({
+        recipe: res
+      });
+    });
+  };
+
+  // componentDidMount() {
+  //  this.getInfo();
+  // }
+
   render() {
     const { title, image_url, ingredients } = this.state.recipe;
+    // console.log(ingredients);
     return (
       <section className="recipeInfo">
         <div className="imageContainer">
@@ -22,11 +47,7 @@ class RecipeInfo extends Component {
           <h4>Ingredients:</h4>
           <ul className="ingredientList">
             {ingredients.map((ing, index) => {
-              return (
-                <li key={index}>
-                {ing}
-                </li>
-              );
+              return <li key={index}>{ing}</li>;
             })}
           </ul>
           <div className="buttonContainer">
