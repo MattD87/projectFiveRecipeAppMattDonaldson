@@ -36,7 +36,7 @@ class RecipeInfo extends Component {
 
   render() {
     const { title, image_url, ingredients } = this.state.recipe;
-    // console.log(ingredients);
+    const {handleDisplay} = this.props;
     return (
       <section className="recipeInfo">
         <div className="imageContainer">
@@ -51,7 +51,7 @@ class RecipeInfo extends Component {
             })}
           </ul>
           <div className="buttonContainer">
-            <button>Back to Recipes</button>
+            <button onClick={() => handleDisplay(true)}>Back to Recipes</button>
             <button>Export to Shopping List</button>
           </div>
         </div>

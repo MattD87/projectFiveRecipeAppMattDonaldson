@@ -4,7 +4,7 @@ import Search from "./Search";
 
 class RecipeList extends Component {
   render() {
-    const { recipes, isLoading } = this.props;
+    const { recipes, isLoading, handleInfo } = this.props;
     return (
       <section className="recipes">
         <Search />
@@ -19,6 +19,7 @@ class RecipeList extends Component {
                 <RecipeLayout
                   key={individualRecipe.recipe_id}
                   recipeNew={individualRecipe}
+                  handleInfo={()=> handleInfo(false, individualRecipe.recipe_id)}
                 />
               );
             })
