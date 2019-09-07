@@ -13,11 +13,13 @@ class App extends Component {
       // recipes: [],
       recipes: recipes,
       url: "https://www.food2fork.com/api/search",
+      defaultUrl: "https://www.food2fork.com/api/search",
       isLoading: true,
       displayList: true,
       id: 35384,
-      searchInput: ""
-      // case: "list"
+      searchTerms: "",
+      query: "&q="
+      
     };
   }
 
@@ -43,7 +45,7 @@ class App extends Component {
       })
       .catch(error => {
         console.log(error);
-        //redo axios with new API key
+        //redo axios with new API key if first one fails
         axios({
           method: "GET",
           url: "https://www.food2fork.com/api/search",
@@ -96,11 +98,35 @@ class App extends Component {
       id: id
     });
   };
- 
+
+  searchInput = event => {
+    this.setState({
+      searchTerms:event.target.value
+    }, () => {
+      console.log(this.state.searchTerms);
+    })
+  };
+
+  /////////////////////////////
+  // WORKING ON THIS SECTION //
+  ////////////////////////////
+  searchSubmit = e => {
+    e.preventDefault();
+    const { defaultUrl, query, searchTerms } = this.state;
+    this.setState(() => {
+      return {url:`${defaultUrl} ${query}${searchTerms}`}
+    })
+    console.log("search submit");
+  };
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header
+          value={this.state.search}
+          searchInput={this.searchInput}
+          searchSubmit={this.searchSubmit}
+        />
         <main>{this.showInfo()}</main>
       </div>
     );

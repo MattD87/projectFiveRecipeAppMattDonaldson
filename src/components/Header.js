@@ -3,15 +3,20 @@ import Search from "./Search";
 
 class Header extends Component {
   render() {
+    const { value, searchInput, searchSubmit } = this.props;
     return (
       <div>
         <header>
           <h1>
-            <i class="fas fa-pizza-slice"></i>
+            <i className="fas fa-pizza-slice"></i>
             Recipes To Go
-            <i class="fas fa-carrot"></i>
+            <i className="fas fa-carrot"></i>
           </h1>
-          <Search />
+          <Search
+            value={value}
+            searchInput={searchInput}
+            searchSubmit={searchSubmit}
+          />
         </header>
       </div>
     );

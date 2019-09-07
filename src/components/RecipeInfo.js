@@ -36,7 +36,7 @@ class RecipeInfo extends Component {
 
   render() {
     const { title, image_url, ingredients } = this.state.recipe;
-    const {handleDisplay} = this.props;
+    const { handleDisplay } = this.props;
     return (
       <section className="recipeInfo">
         <div className="imageContainer">
