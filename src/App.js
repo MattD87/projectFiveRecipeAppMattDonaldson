@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { recipes } from "./fakeList";
 import RecipeList from "./components/RecipeList";
 import RecipeInfo from "./components/RecipeInfo";
-// import Search from "./components/Search";
+import Header from "./components/Header";
 import "./App.css";
 import axios from "axios";
 
@@ -14,8 +14,9 @@ class App extends Component {
       recipes: recipes,
       url: "https://www.food2fork.com/api/search",
       isLoading: true,
+      displayList: true,
       id: 35384,
-      displayList: false
+      searchInput: ""
       // case: "list"
     };
   }
@@ -43,23 +44,23 @@ class App extends Component {
       .catch(error => {
         console.log(error);
         //redo axios with new API key
-        // axios({
-        //   method: "GET",
-        //   url: "https://www.food2fork.com/api/search",
-        //   dataResponse: "json",
-        //   params: {
-        //     key: "2d3c3b859bd6007b3ad1b5d31f2886ec"
-        //   }
-        // }).then(results => {
-        //   //store ajax call info into a variable called results and limit the results (default is 30)
-        //   results = results.data.recipes;
-        //   results.length = 12;
+        axios({
+          method: "GET",
+          url: "https://www.food2fork.com/api/search",
+          dataResponse: "json",
+          params: {
+            key: "2d3c3b859bd6007b3ad1b5d31f2886ec"
+          }
+        }).then(results => {
+          //store ajax call info into a variable called results and limit the results (default is 30)
+          results = results.data.recipes;
+          results.length = 12;
 
-        //   this.setState({
-        //     recipes: results,
-        //     isLoading: false
-        //   });
-        // });
+          this.setState({
+            recipes: results,
+            isLoading: false
+          });
+        });
       });
   };
 
@@ -73,7 +74,7 @@ class App extends Component {
         <RecipeList
           recipes={this.state.recipes}
           isLoading={this.state.isLoading}
-          handleInfo={this.handleInfo}
+          viewDetails={this.viewDetails}
         />
       );
     } else {
@@ -89,32 +90,17 @@ class App extends Component {
     });
   };
 
-  handleInfo = (check, id) => {
+  viewDetails = (check, id) => {
     this.setState({
       displayList: check,
       id: id
     });
   };
-  // ----------------------------------------------------------------
-  // switch (info) {
-  //   case "list":
-  //     return (
-  //       <RecipeList
-  //         recipes={this.state.recipes}
-  //         isLoading={this.state.isLoading}
-  //       />
-  //     );
-  //   case "info":
-  //     return <RecipeInfo id={this.state.id} />;
-  // }
-  // ----------------------------------------------------------------
+ 
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>Recipes To Go</h1>
-          {/* <Search /> */}
-        </header>
+        <Header />
         <main>{this.showInfo()}</main>
       </div>
     );

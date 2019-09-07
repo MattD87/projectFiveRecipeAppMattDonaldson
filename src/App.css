@@ -33,6 +33,17 @@ h1 {
 
 h2 {
   font-size: 34px;
+  padding-top: 10px;
+}
+
+h3 {
+  font-size: 26px;
+  padding-bottom: 8px;
+}
+
+h4 {
+  font-size: 18px;
+  padding: 6px;
 }
 
 main {
@@ -47,11 +58,7 @@ flex-direction: column;
   /* margin-top: 10px; */
 }
 
-h2 {
-  padding-top: 10px;
-}
-
-.search {
+.searchContainer {
   border: 1px dotted blue;
   margin-top: 10px;
   font-size: 20px;
@@ -106,4 +113,8 @@ h2 {
 .ingredientList li {
   list-style-type: square;
   list-style-position: inside;
+}
+
+input {
+  width: 340px;
 }

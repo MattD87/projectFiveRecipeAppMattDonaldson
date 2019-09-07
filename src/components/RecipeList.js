@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import RecipeLayout from "./RecipeLayout";
-import Search from "./Search";
+// import Search from "./Search";
 
 class RecipeList extends Component {
   render() {
-    const { recipes, isLoading, handleInfo } = this.props;
+    const { recipes, isLoading, viewDetails } = this.props;
     return (
       <section className="recipes">
-        <Search />
         <h2>Recipes List:</h2>
         <div className="recipeContainer">
           {/* Take out ! to make work with API */}
@@ -19,7 +18,7 @@ class RecipeList extends Component {
                 <RecipeLayout
                   key={individualRecipe.recipe_id}
                   recipeNew={individualRecipe}
-                  handleInfo={()=> handleInfo(false, individualRecipe.recipe_id)}
+                  viewDetails={()=> viewDetails(false, individualRecipe.recipe_id)}
                 />
               );
             })
