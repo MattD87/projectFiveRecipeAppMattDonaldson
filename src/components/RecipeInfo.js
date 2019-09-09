@@ -30,9 +30,9 @@ class RecipeInfo extends Component {
     });
   };
 
-  componentDidMount() {
-   this.getInfo();
-  }
+  // componentDidMount() {
+  //  this.getInfo();
+  // }
 
   render() {
     const { title, image_url, ingredients } = this.state.recipe;
@@ -51,8 +51,8 @@ class RecipeInfo extends Component {
             })}
           </ul>
           <div className="buttonContainer">
+            <button>Recipe Directions</button>
             <button onClick={() => handleDisplay(true)}>Back to Recipes</button>
-            <button>Export to Shopping List</button>
           </div>
         </div>
       </section>

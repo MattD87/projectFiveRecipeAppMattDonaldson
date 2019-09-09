@@ -70,9 +70,9 @@ class App extends Component {
       });
   };
 
-  componentDidMount() {
-    this.getData(this.state.url);
-  }
+  // componentDidMount() {
+  //   this.getData(this.state.url);
+  // }
 
   showInfo = () => {
     if (this.state.displayList === true) {
@@ -133,7 +133,9 @@ class App extends Component {
           searchInput={this.searchInput}
           searchSubmit={this.searchSubmit}
         />
-        <main>{this.showInfo()}</main>
+        <div className="wrapper">
+          <main>{this.showInfo()}</main>
+        </div>
         <Footer />
       </div>
     );
