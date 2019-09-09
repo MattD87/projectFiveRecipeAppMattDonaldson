@@ -30,9 +30,9 @@ class RecipeInfo extends Component {
     });
   };
 
-  // componentDidMount() {
-  //  this.getInfo();
-  // }
+  componentDidMount() {
+   this.getInfo();
+  }
 
   render() {
     const { title, image_url, ingredients } = this.state.recipe;

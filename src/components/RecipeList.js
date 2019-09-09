@@ -10,7 +10,7 @@ class RecipeList extends Component {
         <h2>Recipes List:</h2>
         <div className="recipeContainer">
           {/* Take out ! to make work with API */}
-          {!isLoading ? (
+          {isLoading ? (
             <p>...Loading</p>
           ) : (
             recipes.map(individualRecipe => {

@@ -3,6 +3,7 @@ import { recipes } from "./fakeList";
 import RecipeList from "./components/RecipeList";
 import RecipeInfo from "./components/RecipeInfo";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "./App.css";
 import axios from "axios";
 
@@ -12,9 +13,10 @@ class App extends Component {
     this.state = {
       // recipes: [],
       recipes: recipes,
-      url: "https://www.food2fork.com/api/search",
+      url:
+        "https://www.food2fork.com/api/search?key=07d7e44a4bc10ad558be2bdd5a88bbbc",
       defaultUrl:
-        "https://www.food2fork.com/api/search?key=",
+        "https://www.food2fork.com/api/search?key=07d7e44a4bc10ad558be2bdd5a88bbbc",
       isLoading: true,
       displayList: true,
       id: 35384,
@@ -25,14 +27,15 @@ class App extends Component {
   }
 
   // make ajax request
-  getData = () => {
+  getData = url => {
     axios({
       method: "GET",
-      url: "https://www.food2fork.com/api/search",
-      dataResponse: "json",
-      params: {
-        key: "07d7e44a4bc10ad558be2bdd5a88bbbc"
-      }
+      url: url,
+      dataResponse: "json"
+      // headers: { "Access-Control-Allow-Origin": "*" }
+      // params: {
+      //   key: "07d7e44a4bc10ad558be2bdd5a88bbbc"
+      // }
     })
       .then(results => {
         //store ajax call info into a variable called results and limit the results (default is 30)
@@ -67,9 +70,9 @@ class App extends Component {
       });
   };
 
-  // componentDidMount() {
-  //   this.getData();
-  // }
+  componentDidMount() {
+    this.getData(this.state.url);
+  }
 
   showInfo = () => {
     if (this.state.displayList === true) {
@@ -101,26 +104,23 @@ class App extends Component {
   };
 
   searchInput = event => {
-    this.setState(
-      {
-        searchTerms: event.target.value
-      },
-      () => {
-        console.log("these are the search terms", this.state.searchTerms);
-      }
-    );
+    this.setState({
+      searchTerms: event.target.value
+    });
   };
 
   searchSubmit = e => {
     e.preventDefault();
-    const { defaultUrl, key, query, searchTerms } = this.state;
-    console.log("url:", defaultUrl, key, query, searchTerms);
+    const { defaultUrl, query, searchTerms } = this.state;
     this.setState(
       () => {
-        return { url: `${defaultUrl}${key}${query}${searchTerms}`, searchTerms:"" };
+        return {
+          url: `${defaultUrl}${query}${searchTerms}`,
+          searchTerms: ""
+        };
       },
       () => {
-        this.getData();
+        this.getData(this.state.url);
       }
     );
   };
@@ -134,6 +134,7 @@ class App extends Component {
           searchSubmit={this.searchSubmit}
         />
         <main>{this.showInfo()}</main>
+        <Footer />
       </div>
     );
   }
