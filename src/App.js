@@ -13,13 +13,14 @@ class App extends Component {
       // recipes: [],
       recipes: recipes,
       url: "https://www.food2fork.com/api/search",
-      defaultUrl: "https://www.food2fork.com/api/search",
+      defaultUrl:
+        "https://www.food2fork.com/api/search?key=",
       isLoading: true,
       displayList: true,
       id: 35384,
       searchTerms: "",
-      query: "&q="
-      
+      query: "&q=",
+      key: "2d3c3b859bd6007b3ad1b5d31f2886ec"
     };
   }
 
@@ -100,23 +101,28 @@ class App extends Component {
   };
 
   searchInput = event => {
-    this.setState({
-      searchTerms:event.target.value
-    }, () => {
-      console.log(this.state.searchTerms);
-    })
+    this.setState(
+      {
+        searchTerms: event.target.value
+      },
+      () => {
+        console.log("these are the search terms", this.state.searchTerms);
+      }
+    );
   };
 
-  /////////////////////////////
-  // WORKING ON THIS SECTION //
-  ////////////////////////////
   searchSubmit = e => {
     e.preventDefault();
-    const { defaultUrl, query, searchTerms } = this.state;
-    this.setState(() => {
-      return {url:`${defaultUrl} ${query}${searchTerms}`}
-    })
-    console.log("search submit");
+    const { defaultUrl, key, query, searchTerms } = this.state;
+    console.log("url:", defaultUrl, key, query, searchTerms);
+    this.setState(
+      () => {
+        return { url: `${defaultUrl}${key}${query}${searchTerms}`, searchTerms:"" };
+      },
+      () => {
+        this.getData();
+      }
+    );
   };
 
   render() {
