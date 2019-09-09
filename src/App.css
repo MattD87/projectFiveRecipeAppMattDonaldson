@@ -26,7 +26,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 }
 
 body {
-  background: #d4cfcf;
+  background: #fff;
+  color: #202c59;
 }
 
 img {
@@ -44,8 +45,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 90vh;
-  background: url(./assets/heroImage.jpeg);
+  height: 100vh;
+  background: url(./assets/heroImage1.jpg);
   background-color: #423f3f;
   background-position: center;
   background-repeat: no-repeat;
@@ -55,13 +56,14 @@ header {
 h1 {
   font-size: 80px;
   margin-bottom: 20px;
-  color: white;
+  color: #fff;
   text-transform: uppercase;
-  text-shadow: 1px 1px black;
+  /* text-shadow: 1px 1px #000; */
 }
 
 i:nth-of-type(1) {
-  color: #f98918;
+  color: #ee5622;
+  padding-right: 8px;
 }
 
 /* i:nth-of-type(2) {
@@ -71,9 +73,10 @@ i:nth-of-type(1) {
 h4 {
   font-size: 22px;
   padding: 6px;
-  color: #d7da35;
+  padding-bottom: 12px;
+  color: #f98918;
   text-transform: uppercase;
-  text-shadow: 2px 1px black;
+  /* text-shadow: 1px 1px #31263e; */
 }
 
 .searchContainer {
@@ -89,7 +92,7 @@ h4 {
 }
 
 .search {
-  background: rgba(39, 31, 39,0.75);
+  background: rgba(49, 38, 62,0.75);
   border: none;
 }
 
@@ -100,12 +103,12 @@ input {
 }
 
 .search i {
-  color: #f98918;
+  color: #ee5622;
   font-size: 34px;
 }
 
 .search:hover {
-  background: #271f27;
+  background: #31263e;
 }
 
 h2 {
@@ -116,9 +119,11 @@ h2 {
 h3 {
   font-size: 24px;
   padding-bottom: 8px;
-  color: orangered;
+  color: #ee5622;
+  text-shadow: 1px 1px #000;
+  text-transform: uppercase;
+  /* font-family: 'Lato', sans-serif; */
 }
-
 
 main {
 display: flex;
@@ -128,7 +133,7 @@ flex-direction: column;
 .recipes {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #fff;
 }
 
 
@@ -154,7 +159,7 @@ flex-direction: column;
   width: 31%;
   margin: 10px;
   padding: 10px;
-  background: rgba(218, 214, 214, 0.5);
+  background: rgba(248, 192, 137, 0.5);
 }
 
 .infoContainer {
@@ -168,7 +173,7 @@ flex-direction: column;
 }
 
 .infoContainer h4 {
-  font-size: 20px;
+  font-size: 22px;
   padding: 10px 0;
 }
 
@@ -177,13 +182,41 @@ flex-direction: column;
 }
 
 .buttonContainer button {
+  justify-content: flex-start;
   margin: 0 4px;
   padding: 8px;
-  background: darkslategray;
+  background: #202c59;
   color: white;
+  border: none;
+}
+
+.buttonContainer button:hover {
+  background: #ee5622;
+  color: #000;
+}
+
+.buttonContainer button:nth-of-type(2) {
+  background: #ee5622;
+  color: #31263e;
+}
+
+.buttonContainer button:nth-of-type(2):hover {
+  background: #202c59;
+  color: #ee5622;
 }
 
 .ingredientList li {
   list-style-type: square;
   list-style-position: inside;
+  margin-top: 8px;
+  color: #000;
+  font-family: 'Lato', sans-serif;
+}
+
+footer {
+  margin-top: 12px;
+  background: #0a0f22;
+  color: #f98918;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
 }
