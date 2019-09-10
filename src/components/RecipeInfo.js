@@ -30,9 +30,9 @@ class RecipeInfo extends Component {
     });
   };
 
-  // componentDidMount() {
-  //  this.getInfo();
-  // }
+  componentDidMount() {
+   this.getInfo();
+  }
 
   //render the info pulled form the API call
   render() {

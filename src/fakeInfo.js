@@ -1,4 +1,4 @@
-//This is a fake example of a specific recipe result from the API call. Used to allow styling and testing without using up API data
+//This is a fake example of a specific recipe result from the API call. Used to allow styling and testing without using up API calls, and to use in case API is down.
 export const recipe = {
   f2f_url: "http://food2fork.com/view/35382",
   image_url:

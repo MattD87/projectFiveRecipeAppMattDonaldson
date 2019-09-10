@@ -14,6 +14,7 @@ class App extends Component {
       recipes: recipes,
       url:
         "https://www.food2fork.com/api/search?key=07d7e44a4bc10ad558be2bdd5a88bbbc",
+        //defaultURL needed because url is updated on search and need a default url to reset
       defaultUrl:
         "https://www.food2fork.com/api/search?key=07d7e44a4bc10ad558be2bdd5a88bbbc",
       isLoading: true,
@@ -65,9 +66,9 @@ class App extends Component {
       });
   };
 
-  // componentDidMount() {
-  //   this.getData(this.state.url);
-  // }
+  componentDidMount() {
+    this.getData(this.state.url);
+  }
 
   //function to show recipe list or recipe info if there is no list data
   showInfo = () => {

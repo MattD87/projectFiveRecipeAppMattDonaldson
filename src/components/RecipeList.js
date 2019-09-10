@@ -8,9 +8,8 @@ class RecipeList extends Component {
       <section className="recipes">
         <h2>Recipes:</h2>
         <div className="recipeContainer">
-          {/*Ternary operator to check if API call has returned data, if not show loading}
-          {/* Take out ! to make work with API, add ! before isLoading if working with fake data */}
-          {!isLoading ? (
+          {/*Ternary operator to check if API call has returned data, if not show loading*/}
+          {isLoading ? (
             <p>...Loading</p>
           ) : (
             recipes.map(individualRecipe => {

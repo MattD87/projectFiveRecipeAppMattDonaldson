@@ -1,4 +1,4 @@
-//This is a fake example of a result from the API call. Used to allow styling and testing without using up API calls
+//This is a fake example of a result from the API call. Used to allow styling and testing without using up API calls and to in case the API has gone down.
 
 export const recipes = [
   {

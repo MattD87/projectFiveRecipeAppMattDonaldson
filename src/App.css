@@ -43,6 +43,7 @@ body {
 /* Image Styling */
 img {
   width: 100%;
+  height: 100%;
   margin: auto;
 }
 
@@ -194,12 +195,11 @@ main {
 }
 
 .infoContainer h3 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   padding: 14px 0;
 }
 
 .infoContainer h4 {
-  font-size: 1.1rem;
   padding: 10px 0;
 }
 
@@ -282,3 +282,148 @@ footer a:focus {
 Responsiveness and Media Queries
 /////////////////////////////////*/
 
+/*Large Screens */
+@media (min-width: 1450px) {
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+}
+/* Portrait tablet and small desktops */
+@media (max-width: 940px){
+  html {
+    font-size: 100%;
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  .recipeCard h3 {
+    font-size: 1.6rem;
+  }
+
+  .infoContainer h3 {
+    font-size: 2rem;
+  }
+
+  .infoContainer h4 {
+    font-size: 1.4rem
+  }
+
+  img {
+    width: 80%;
+  }
+}
+/*Tablets */
+@media (max-width: 768px) {
+  header {
+    height: 80vh;
+  }
+}
+
+/*Small Tablets */
+@media (max-width: 650px) {
+  h1 {
+    font-size: 4rem;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  .imageContainer img {
+    height: 80%;
+  }
+
+  input {
+    width: 400px;
+    height: 50px;
+  }
+}
+/* Landscape phones and down */
+@media (max-width: 480px){
+  header {
+    height: 70vh;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  input {
+    width: 300px;
+  }
+
+  .recipeInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imageContainer img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .infoContainer h3 {
+    font-size: 1.8rem;
+  }
+}
+/* Mid size phones */
+@media(max-width: 375px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+  h4 {
+    font-size: 0.9rem;
+  }
+  input {
+    width: 250px;
+    height: 40px;
+  }
+  .search {
+    height: 40px;
+    margin-left: 4px;
+  }
+
+  .search i {
+    font-size: 1.6rem;
+  }
+}
+/*Even smaller*/
+@media(max-width: 320px){
+  html {
+    font-size: 80%;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  input {
+    width: 220px;
+  }
+
+  .search i {
+    font-size: 1.6rem;
+  }
+}
