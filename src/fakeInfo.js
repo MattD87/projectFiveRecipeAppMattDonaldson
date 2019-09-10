@@ -1,3 +1,4 @@
+//This is a fake example of a specific recipe result from the API call. Used to allow styling and testing without using up API data
 export const recipe = {
   f2f_url: "http://food2fork.com/view/35382",
   image_url:

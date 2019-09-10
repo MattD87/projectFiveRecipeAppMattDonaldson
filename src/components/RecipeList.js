@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import RecipeLayout from "./RecipeLayout";
-// import Search from "./Search";
 
 class RecipeList extends Component {
   render() {
@@ -9,7 +8,8 @@ class RecipeList extends Component {
       <section className="recipes">
         <h2>Recipes:</h2>
         <div className="recipeContainer">
-          {/* Take out ! to make work with API */}
+          {/*Ternary operator to check if API call has returned data, if not show loading}
+          {/* Take out ! to make work with API, add ! before isLoading if working with fake data */}
           {!isLoading ? (
             <p>...Loading</p>
           ) : (

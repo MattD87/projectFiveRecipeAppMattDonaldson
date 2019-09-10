@@ -6,12 +6,12 @@ class RecipeInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // recipe: {},
       recipe: recipe,
       url: "https://www.food2fork.com/api/get"
     };
   }
 
+  //make a new API call with specific recipe info
   getInfo = () => {
     axios({
       method: "GET",
@@ -34,6 +34,7 @@ class RecipeInfo extends Component {
   //  this.getInfo();
   // }
 
+  //render the info pulled form the API call
   render() {
     const { title, image_url, source_url, ingredients } = this.state.recipe;
     const { handleDisplay } = this.props;

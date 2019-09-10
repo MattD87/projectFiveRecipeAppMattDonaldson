@@ -10,7 +10,6 @@ class Header extends Component {
           <h1>
             <i className="fas fa-pizza-slice"></i>
             Recipes To Go
-            {/* <i className="fas fa-carrot"></i> */}
           </h1>
           <Search
             value={value}

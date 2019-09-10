@@ -11,7 +11,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      // recipes: [],
       recipes: recipes,
       url:
         "https://www.food2fork.com/api/search?key=07d7e44a4bc10ad558be2bdd5a88bbbc",
@@ -32,10 +31,6 @@ class App extends Component {
       method: "GET",
       url: url,
       dataResponse: "json"
-      // headers: { "Access-Control-Allow-Origin": "*" }
-      // params: {
-      //   key: "07d7e44a4bc10ad558be2bdd5a88bbbc"
-      // }
     })
       .then(results => {
         //store ajax call info into a variable called results and limit the results (default is 30)
@@ -48,8 +43,8 @@ class App extends Component {
         });
       })
       .catch(error => {
+        //redo axios with new API key if first one fails and log error
         console.log(error);
-        //redo axios with new API key if first one fails
         axios({
           method: "GET",
           url: "https://www.food2fork.com/api/search",
@@ -58,7 +53,7 @@ class App extends Component {
             key: "2d3c3b859bd6007b3ad1b5d31f2886ec"
           }
         }).then(results => {
-          //store ajax call info into a variable called results and limit the results (default is 30)
+          //store ajax call info into a variable and limit the results (default is 30)
           results = results.data.recipes;
           results.length = 12;
 
@@ -74,6 +69,7 @@ class App extends Component {
   //   this.getData(this.state.url);
   // }
 
+  //function to show recipe list or recipe info if there is no list data
   showInfo = () => {
     if (this.state.displayList === true) {
       return (
@@ -90,12 +86,14 @@ class App extends Component {
     }
   };
 
+  //function to show recipe list if populated, called in recipeInfo
   handleDisplay = check => {
     this.setState({
       displayList: check
     });
   };
 
+  //function to show recipe details if 'view details' is clicked, called in recipeLayout
   viewDetails = (check, id) => {
     this.setState({
       displayList: check,
@@ -103,12 +101,14 @@ class App extends Component {
     });
   };
 
+  //function to store search input data, called in Search
   searchInput = event => {
     this.setState({
       searchTerms: event.target.value
     });
   };
 
+  //function to handle form submit and show results, called in Search
   searchSubmit = e => {
     e.preventDefault();
     const { defaultUrl, query, searchTerms } = this.state;
@@ -125,6 +125,7 @@ class App extends Component {
     );
   };
 
+  //render for the App
   render() {
     return (
       <div className="App">

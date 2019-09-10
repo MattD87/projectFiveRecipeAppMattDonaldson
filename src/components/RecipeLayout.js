@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+//displays each recipe in the mapped API results
 class RecipeLayout extends Component {
   render() {
     const { title, image_url, recipe_id } = this.props.recipeNew;
