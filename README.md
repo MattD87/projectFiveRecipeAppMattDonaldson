@@ -1,3 +1,7 @@
+There is a limit of 50 API calls a day using the food2fork API. An extra API key has been added in a .catch method to help mitigate this. If the limit has been reached, please either sign up for an API key and update in the code, or comment out the component did mount calls in App.js and RecipeInfo.js and add a ! on line 12 of RecipeList.js before the isLoading: 
+{!isLoading ? (
+
+-----------------------------------------------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
