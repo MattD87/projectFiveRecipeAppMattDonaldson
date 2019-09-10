@@ -35,7 +35,7 @@ class RecipeInfo extends Component {
   // }
 
   render() {
-    const { title, image_url, ingredients } = this.state.recipe;
+    const { title, image_url, source_url, ingredients } = this.state.recipe;
     const { handleDisplay } = this.props;
     return (
       <section className="recipeInfo">
@@ -50,8 +50,12 @@ class RecipeInfo extends Component {
               return <li key={index}>{ing}</li>;
             })}
           </ul>
-          <div className="buttonContainer">
-            <button>Recipe Directions</button>
+          <div className="buttonsContainer">
+            <button>
+              <a href={source_url} target="_blank rel=noopener">
+                View Instructions
+              </a>
+            </button>
             <button onClick={() => handleDisplay(true)}>Back to Recipes</button>
           </div>
         </div>

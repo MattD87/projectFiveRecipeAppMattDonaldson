@@ -7,7 +7,12 @@ class Search extends Component {
       <div className="searchContainer">
         <h4>Enter ingredients seperated by a comma</h4>
         <form className="searchBar" onSubmit={searchSubmit}>
-          <input type="text" placeholder="beef, carrots, onions" value={value} onChange={searchInput}/>
+          <input
+            type="text"
+            placeholder="beef, carrots, onions"
+            value={value}
+            onChange={searchInput}
+          />
           <button className="search">
             <i className="fas fa-search"></i>
           </button>

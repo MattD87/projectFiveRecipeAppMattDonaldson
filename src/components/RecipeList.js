@@ -7,7 +7,7 @@ class RecipeList extends Component {
     const { recipes, isLoading, viewDetails } = this.props;
     return (
       <section className="recipes">
-        <h2>Recipes List:</h2>
+        <h2>Recipes:</h2>
         <div className="recipeContainer">
           {/* Take out ! to make work with API */}
           {!isLoading ? (
@@ -18,7 +18,9 @@ class RecipeList extends Component {
                 <RecipeLayout
                   key={individualRecipe.recipe_id}
                   recipeNew={individualRecipe}
-                  viewDetails={()=> viewDetails(false, individualRecipe.recipe_id)}
+                  viewDetails={() =>
+                    viewDetails(false, individualRecipe.recipe_id)
+                  }
                 />
               );
             })
