@@ -3,14 +3,15 @@ import RecipeLayout from "./RecipeLayout";
 
 class RecipeList extends Component {
   render() {
-    const { recipes, isLoading, viewDetails } = this.props;
+    const { recipes, isLoading, viewDetails, noResult } = this.props;
     return (
       <section className="recipes">
         <h2>Recipes:</h2>
         <div className="recipeContainer">
           {/*Ternary operator to check if API call has returned data, if not show loading*/}
+          {noResult && <p>{noResult}</p>}
           {isLoading ? (
-            <p>...Loading</p>
+            <p>Loading...</p>
           ) : (
             recipes.map(individualRecipe => {
               return (

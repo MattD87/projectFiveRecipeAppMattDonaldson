@@ -13,16 +13,17 @@ class App extends Component {
     this.state = {
       recipes: recipes,
       url:
-        "https://www.food2fork.com/api/search?key=07d7e44a4bc10ad558be2bdd5a88bbbc",
-        //defaultURL needed because url is updated on search and need a default url to reset
+        "https://www.food2fork.com/api/search?key=d32213004e516b2cc8d1e2a62585422d",
+      //defaultURL needed because url is updated on search and need a default url to reset as well as use a different key to help mitigate daily API call limit of 50
       defaultUrl:
-        "https://www.food2fork.com/api/search?key=07d7e44a4bc10ad558be2bdd5a88bbbc",
+        "https://www.food2fork.com/api/search?key=963365ead40c2c76ed338a03bb49a65a",
       isLoading: true,
       displayList: true,
       id: 35384,
       searchTerms: "",
       query: "&q=",
-      key: "2d3c3b859bd6007b3ad1b5d31f2886ec"
+      key: "963365ead40c2c76ed338a03bb49a65a",
+      noResult: ""
     };
   }
 
@@ -32,38 +33,34 @@ class App extends Component {
       method: "GET",
       url: url,
       dataResponse: "json"
-    })
-      .then(results => {
-        //store ajax call info into a variable called results and limit the results (default is 30)
-        results = results.data.recipes;
+    }).then(results => {
+      //store ajax call info into a variable called results and limit the results (default is 30)
+      results = results.data.recipes;
+      console.log(results, results.length);
+      if (results.length !== 0) {
         results.length = 12;
-
         this.setState({
           recipes: results,
-          isLoading: false
+          isLoading: false,
+          noResult: null
         });
-      })
-      .catch(error => {
-        //redo axios with new API key if first one fails and log error
-        console.log(error);
-        axios({
-          method: "GET",
-          url: "https://www.food2fork.com/api/search",
-          dataResponse: "json",
-          params: {
-            key: "2d3c3b859bd6007b3ad1b5d31f2886ec"
-          }
-        }).then(results => {
-          //store ajax call info into a variable and limit the results (default is 30)
-          results = results.data.recipes;
-          results.length = 12;
-
-          this.setState({
-            recipes: results,
-            isLoading: false
-          });
+        //If no results
+      } else if (results.length === 0) {
+        this.setState({
+          noResult:
+            "Sorry, your search had no results! Make sure you put commas between search terms.",
+          isLoading: false,
+          recipes: []
         });
-      });
+        //all other cases, just in case
+      } else {
+        this.setState({
+          recipes: results,
+          isLoading: false,
+          noResult: null
+        });
+      }
+    });
   };
 
   componentDidMount() {
@@ -78,6 +75,7 @@ class App extends Component {
           recipes={this.state.recipes}
           isLoading={this.state.isLoading}
           viewDetails={this.viewDetails}
+          noResult={this.state.noResult}
         />
       );
     } else {

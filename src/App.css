@@ -40,6 +40,19 @@ body {
   color: #202c59;
 }
 
+.visuallyHidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 /* Image Styling */
 img {
   width: 100%;
@@ -143,8 +156,8 @@ h2 {
 h3 {
   font-size: 1.3rem;
   padding-bottom: 8px;
-  color: #202c59;
-  text-shadow: 1px 1px #ee5622;
+  color: #ee5622;
+  text-shadow: 1px 1px #202c59;
   text-transform: uppercase;
 }
 
